@@ -11,13 +11,12 @@ import hashing.HashingComPorao;
 import hashing.HashingEncadeamentoAberto;
 
 public class TestHashingAberto {
-    
 
     private HashingEncadeamentoAberto ha;
     private HashingComPorao hp;
 
     @Before
-    public void configurar(){
+    public void configurar() {
         ha = new HashingEncadeamentoAberto();
         hp = new HashingComPorao();
 
@@ -25,7 +24,7 @@ public class TestHashingAberto {
         hp.insert(10);
 
         Random r = new Random();
-        Set<Integer>set = new LinkedHashSet<Integer>();
+        Set<Integer> set = new LinkedHashSet<Integer>();
 
         set.add(10);
         for (int i = 0; i < 1000; i++) {
@@ -40,26 +39,26 @@ public class TestHashingAberto {
     }
 
     @Test
-    public void testSearchHashingAberto(){
+    public void testSearchHashingAberto() {
         assertFalse(ha.search(20100));
         assertTrue(ha.search(10));
     }
 
     @Test
-    public void testDeleteHashingAberto(){
+    public void testDeleteHashingAberto() {
         assertTrue(ha.search(10));
         ha.delete(10);
-        assertTrue(ha.search(10));
+        assertFalse(ha.search(10));
     }
 
     @Test
-    public void testSearchHashingComPorao(){
+    public void testSearchHashingComPorao() {
         assertFalse(hp.search(20100));
         assertTrue(hp.search(10));
     }
 
     @Test
-    public void testDeleteHashingComPorao(){
+    public void testDeleteHashingComPorao() {
         assertTrue(hp.search(10));
         hp.delete(10);
         assertTrue(hp.search(10));
